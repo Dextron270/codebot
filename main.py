@@ -9,10 +9,7 @@ client = discord.Client()
 
 
 async def run_script(file, channel):
-
-    async def send_log(stdout, msg):
-        print("send_log")
-        
+  
     
     print("run_script")
     proc = subprocess.Popen(["python", "-u", f"./scripts/{str(file)}"], stdout=subprocess.PIPE, stderr=sys.stdout.buffer)
