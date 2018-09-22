@@ -24,7 +24,6 @@ async def run_script(file, channel):
 
         else:
             msg_content_tosend = (msg_content.partition("\n"))[2]
-            print(msg_content.partition("\n"))
 
         to_send = f"```python\n{msg_content_tosend}{line.decode('ascii')}```"
         await msg.edit(content=to_send)
