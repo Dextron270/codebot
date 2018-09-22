@@ -17,7 +17,16 @@ async def run_script(file, channel):
     msg = await channel.send(":)")
     
     for line in stdout:
-        to_send = f"```python\n{((msg.content)[9:])[:-3]}{line.decode('ascii')}```"
+        msg_content = ((msg.content)[9:])[:-3]
+
+        if len(msg_content) < 15:
+            msg_content_tosend = msg_content
+
+        else:
+            print("a")
+            msg_content_tosend = msg_content.split("\n", maxsplit=1)[1]
+
+        to_send = f"```python\n{msg_content_tosend}{line.decode('ascii')}```"
         await msg.edit(content=to_send)
 
 @client.event
